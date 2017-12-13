@@ -4,7 +4,8 @@
 #include<stdlib.h>
 #include<iostream>
 #include<deque>
-											using namespace std;
+
+using namespace std;
 
 int scene = 0;
 unsigned int counter = 0;
@@ -94,9 +95,9 @@ public:
 };
 class Bullet :public Obj{
 public:
-	//‚±‚±‚Å‚ÌPoint*p‚Í•`‰æÀ•W‚Å‚Í‚È‚­A’…’e“_À•W
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Å‚ï¿½Point*pï¿½Í•`ï¿½ï¿½ï¿½ï¿½Wï¿½Å‚Í‚È‚ï¿½ï¿½Aï¿½ï¿½ï¿½eï¿½_ï¿½ï¿½ï¿½W
 	Point* drawp;
-	double r;//’eŠÛ‚Ì‘å‚«‚³
+	double r;//ï¿½eï¿½Û‚Ì‘å‚«ï¿½ï¿½
 	Bullet(double rr, Point* pp, Point* fromp, Color* cc) :Obj(pp, cc), r(rr), drawp(fromp){}
 	void changeZ(double zz){ drawp->z = zz; }
 	void draw(){
@@ -227,9 +228,9 @@ public:
 	}
 
 	void move(double *x, double *z, double *X, double *XX, double *XXX, double *XXXX, double *XXXXX){
-		if (counter % 1000 == 0){//‚Ü‚¸‚Í‚¶‚ß‚É‚Ç‚Á‚¿‚ÉˆÚ“®‚·‚é‚©‚Åê‡•ª‚¯‚·‚éB
+		if (counter % 1000 == 0){//ï¿½Ü‚ï¿½ï¿½Í‚ï¿½ï¿½ß‚É‚Ç‚ï¿½ï¿½ï¿½ï¿½ÉˆÚ“ï¿½ï¿½ï¿½ï¿½é‚©ï¿½Åê‡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
 			if (cnt % 2 != 0){
-				if (*X >= 3.9){//ˆê”Ô¶‚ª–‚½‚µ‚½‚ç
+				if (*X >= 3.9){//ï¿½ï¿½Ôï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					cnt++;
 					*XXXXX = 0.3;
 					*XXXX = 0.9;
@@ -250,7 +251,7 @@ public:
 
 			}
 			else if (cnt == 0 || cnt % 2 == 0){
-				if (*XXXXX <= -4.5){//ˆê”Ô‰E‚ª–‚½‚µ‚½‚ç
+				if (*XXXXX <= -4.5){//ï¿½ï¿½Ô‰Eï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					cnt++;
 					*XXXXX = -3.9;
 					*XXXX = -3.3;
@@ -311,32 +312,32 @@ public:
 	void draw(){
 		glBegin(GL_QUADS);
 		glColor3f(c->r, c->g, c->b);
-		//è‘O
+		//ï¿½ï¿½O
 		glVertex3f(width / 2 + p->x, height / 2 + p->y, depth / 2 + p->z);
 		glVertex3f(-width / 2 + p->x, height / 2 + p->y, depth / 2 + p->z);
 		glVertex3f(-width / 2 + p->x, -height / 2 + p->y, depth / 2 + p->z);
 		glVertex3f(width / 2 + p->x, -height / 2 + p->y, depth / 2 + p->z);
-		//¶
+		//ï¿½ï¿½
 		glVertex3f(width / 2 + p->x, height / 2 + p->y, depth / 2 + p->z);
 		glVertex3f(width / 2 + p->x, height / 2 + p->y, -depth / 2 + p->z);
 		glVertex3f(width / 2 + p->x, -height / 2 + p->y, -depth / 2 + p->z);
 		glVertex3f(width / 2 + p->x, -height / 2 + p->y, depth / 2 + p->z);
-		//‰E
+		//ï¿½E
 		glVertex3f(-width / 2 + p->x, height / 2 + p->y, -depth / 2 + p->z);
 		glVertex3f(-width / 2 + p->x, height / 2 + p->y, depth / 2 + p->z);
 		glVertex3f(-width / 2 + p->x, -height / 2 + p->y, depth / 2 + p->z);
 		glVertex3f(-width / 2 + p->x, -height / 2 + p->y, -depth / 2 + p->z);
-		//Œã
+		//ï¿½ï¿½
 		glVertex3f(width / 2 + p->x, height / 2 + p->y, -depth / 2 + p->z);
 		glVertex3f(-width / 2 + p->x, height / 2 + p->y, -depth / 2 + p->z);
 		glVertex3f(-width / 2 + p->x, -height / 2 + p->y, -depth / 2 + p->z);
 		glVertex3f(width / 2 + p->x, -height / 2 + p->y, -depth / 2 + p->z);
-		//ã
+		//ï¿½ï¿½
 		glVertex3f(width / 2 + p->x, height / 2 + p->y, depth / 2 + p->z);
 		glVertex3f(-width / 2 + p->x, height / 2 + p->y, depth / 2 + p->z);
 		glVertex3f(-width / 2 + p->x, height / 2 + p->y, -depth / 2 + p->z);
 		glVertex3f(width / 2 + p->x, height / 2 + p->y, -depth / 2 + p->z);
-		//‰º
+		//ï¿½ï¿½
 		glVertex3f(width / 2 + p->x, -height / 2 + p->y, depth / 2 + p->z);
 		glVertex3f(-width / 2 + p->x, -height / 2 + p->y, depth / 2 + p->z);
 		glVertex3f(-width / 2 + p->x, -height / 2 + p->y, -depth / 2 + p->z);
@@ -348,41 +349,41 @@ public:
 		if (hp < (100 / 3) * 2){
 			glColor3f(1, 1, 0);
 			glBegin(GL_QUADS);
-			//‘O
+			//ï¿½O
 			glNormal3f(0.0, 0.0, -1.0);
 			glVertex3f(width / 2, height / 2, depth / 2);
 			glVertex3f(-width / 2, height / 2, depth / 2);
 			glVertex3f(-width / 2, -height / 2, depth / 2);
 			glVertex3f(width / 2, -height / 2, depth / 2);
-			//¶
+			//ï¿½ï¿½
 			glNormal3f(1.0, 0.0, 0.0);
 			glVertex3f(width / 2, height / 2, depth / 2);
 			glVertex3f(width / 2, height / 2, -depth / 2);
 			glVertex3f(width / 2, -height / 2, -depth / 2);
 			glVertex3f(width / 2, -height / 2, depth / 2);
 
-			//‰E
+			//ï¿½E
 			glNormal3f(-1.0, 0.0, 0.0);
 			glVertex3f(-width / 2, height / 2, -depth / 2);
 			glVertex3f(-width / 2, height / 2, depth / 2);
 			glVertex3f(-width / 2, -height / 2, depth / 2);
 			glVertex3f(-width / 2, -height / 2, -depth / 2);
 
-			//Œã
+			//ï¿½ï¿½
 			glNormal3f(0.0, 0.0, 1.0);
 			glVertex3f(width / 2, height / 2, -depth / 2);
 			glVertex3f(-width / 2, height / 2, -depth / 2);
 			glVertex3f(-width / 2, -height / 2, -depth / 2);
 			glVertex3f(width / 2, -height / 2, -depth / 2);
 
-			//ã
+			//ï¿½ï¿½
 			glNormal3f(0.0, 1.0, 0.0);
 			glVertex3f(width / 2, height / 2, depth / 2);
 			glVertex3f(-width / 2, height / 2, depth / 2);
 			glVertex3f(-width / 2, height / 2, -depth / 2);
 			glVertex3f(width / 2, height / 2, -depth / 2);
 
-			//‰º
+			//ï¿½ï¿½
 			glNormal3f(0.0, -1.0, 0.0);
 			glVertex3f(width / 2, -height / 2, depth / 2);
 			glVertex3f(-width / 2, -height / 2, depth / 2);
@@ -393,38 +394,38 @@ public:
 		else if (hp < 100 / 3){
 			glColor3f(1, 0, 0);
 			glBegin(GL_QUADS);
-			//‘O
+			//ï¿½O
 			glNormal3f(0.0, 0.0, -1.0);
 			glVertex3f(width / 2, height / 2, depth / 2);
 			glVertex3f(-width / 2, height / 2, depth / 2);
 			glVertex3f(-width / 2, -height / 2, depth / 2);
 			glVertex3f(width / 2, -height / 2, depth / 2);
-			//¶
+			//ï¿½ï¿½
 			glNormal3f(1.0, 0.0, 0.0);
 			glVertex3f(width / 2, height / 2, depth / 2);
 			glVertex3f(width / 2, height / 2, -depth / 2);
 			glVertex3f(width / 2, -height / 2, -depth / 2);
 			glVertex3f(width / 2, -height / 2, depth / 2);
-			//‰E
+			//ï¿½E
 			glNormal3f(-1.0, 0.0, 0.0);
 			glVertex3f(-width / 2, height / 2, -depth / 2);
 			glVertex3f(-width / 2, height / 2, depth / 2);
 			glVertex3f(-width / 2, -height / 2, depth / 2);
 			glVertex3f(-width / 2, -height / 2, -depth / 2);
-			//Œã
+			//ï¿½ï¿½
 			glNormal3f(0.0, 0.0, 1.0);
 			glVertex3f(width / 2, height / 2, -depth / 2);
 			glVertex3f(-width / 2, height / 2, -depth / 2);
 			glVertex3f(-width / 2, -height / 2, -depth / 2);
 			glVertex3f(width / 2, -height / 2, -depth / 2);
-			//ã
+			//ï¿½ï¿½
 			glNormal3f(0.0, 1.0, 0.0);
 			glVertex3f(width / 2, height / 2, depth / 2);
 			glVertex3f(-width / 2, height / 2, depth / 2);
 			glVertex3f(-width / 2, height / 2, -depth / 2);
 			glVertex3f(width / 2, height / 2, -depth / 2);
 
-			//‰º
+			//ï¿½ï¿½
 			glNormal3f(0.0, -1.0, 0.0);
 			glVertex3f(width / 2, -height / 2, depth / 2);
 			glVertex3f(-width / 2, -height / 2, depth / 2);
@@ -543,7 +544,7 @@ void start(){
 void display(){
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	//•Ç
+	//ï¿½ï¿½
 	static Wall*wall1 = new Wall(new Point(1.5, 0, 1.5), new Color(0, 0, 1), 0.8, 1.0, 0.25);
 	if (wall1->exist)wall1->draw();
 	static Wall*wall2 = new Wall(new Point(-1.5, 0, 1.5), new Color(0, 0, 1), 0.8, 1.0, 0.25);
@@ -553,7 +554,7 @@ void display(){
 
 	double d = 0.6;
 
-	Color* C2 = new Color(1, 0, 0.5);//ƒ‰ƒCƒtƒ|ƒCƒ“ƒgŠÖŒWby‚Ã‚©‚³‚ñ
+	Color* C2 = new Color(1, 0, 0.5);//ï¿½ï¿½ï¿½Cï¿½tï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ÖŒWbyï¿½Ã‚ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	double x = 3.6;
 	double y = -0.9;
@@ -578,7 +579,7 @@ void display(){
 	}
 
 
-	bool j = false;//‘Oi‚·‚é‚ÌH
+	bool j = false;//ï¿½Oï¿½iï¿½ï¿½ï¿½ï¿½ÌH
 	for (int i = 0; i < enemies.size(); i++){
 		if (enemies[i]->p->x - 0.6 < -4.5 && enemies[i]->cnt % 2 == 0){
 			j = true;
@@ -603,7 +604,7 @@ void display(){
 
 
 
-	//ƒ‰ƒCƒtƒ|ƒCƒ“ƒg
+	//ï¿½ï¿½ï¿½Cï¿½tï¿½|ï¿½Cï¿½ï¿½ï¿½g
 	Point* HPp1 = new Point(13, -9, 1.001);
 	Point* HPp2 = new Point(13, -7, 1.001);
 	Point* HPp3 = new Point(13, -5, 1.001);
@@ -623,7 +624,7 @@ void display(){
 		glutPostRedisplay();
 	}
 
-	//©•ª‚Ì‹…
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ì‹ï¿½
 	for (int i = 0; i < int(bullets.size()); i++){
 		if (bullets[i]->drawp->z <= 5.5){
 			bool del = false;
@@ -666,7 +667,7 @@ void display(){
 		}
 	}
 
-	//‘Šè‚Ì‹…
+	//ï¿½ï¿½ï¿½ï¿½Ì‹ï¿½
 	for (int i = 0; i < int(bullets2.size()); i++){
 		if (bullets2[i]->drawp->z > 1.0){
 			bool del = false;
@@ -813,7 +814,7 @@ void mouse(int button, int state, int x, int y){
 }
 
 void openGLInit(int* argc, char** argv){
-	glutInit(argc, argv);//‚¨‚Ü‚¶‚È‚¢
+	glutInit(argc, argv);//ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½È‚ï¿½
 	glutInitDisplayMode(GLUT_RGB | GLUT_DEPTH | GLUT_DOUBLE);
 	glutInitWindowSize(1080, 720);
 	glutCreateWindow("sample");
