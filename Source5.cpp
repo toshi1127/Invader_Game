@@ -279,7 +279,7 @@ class Target : public Obj
 			else if (cnt == 0 || cnt % 2 == 0)
 			{
 				if (*XXXXX <= -4.5)
-				{ //��ԉE������������
+				{ 
 					cnt++;
 					*XXXXX = -3.9;
 					*XXXX = -3.3;
